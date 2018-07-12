@@ -45,14 +45,12 @@ namespace KaloHash
             Thread thd = new Thread(() =>
             {
                 CreateISO.Create(drive);
-                
             });
             thd.IsBackground = true;
-            thd.Start();
 
-            Thread thd2 = new Thread(() =>{
-
-                while(thd.IsAlive)
+            Thread thd2 = new Thread(() => {
+                thd.Start();
+                while (thd.IsAlive)
                 {
                     status = CreateISO.status;
                     Thread.Sleep(33);

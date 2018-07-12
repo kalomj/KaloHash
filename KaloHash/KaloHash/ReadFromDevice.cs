@@ -44,23 +44,30 @@ namespace KaloHash
 
         private void Load(string Path)
         {
-            if (string.IsNullOrEmpty(Path))
+            try
             {
-                throw new ArgumentNullException("Path");
+                if (string.IsNullOrEmpty(Path))
+                {
+                    throw new ArgumentNullException("Path");
+                }
+
+                // Try to open the file.
+                IntPtr ptr = CreateFile(Path, GENERIC_READ, 0, IntPtr.Zero, OPEN_EXISTING, 0, IntPtr.Zero);
+
+                handleValue = new SafeFileHandle(ptr, true);
+                _fs = new FileStream(handleValue, FileAccess.Read);
+
+                // If the handle is invalid,
+                // get the last Win32 error 
+                // and throw a Win32Exception.
+                if (handleValue.IsInvalid)
+                {
+                    Marshal.ThrowExceptionForHR(Marshal.GetHRForLastWin32Error());
+                }
             }
-
-            // Try to open the file.
-            IntPtr ptr = CreateFile(Path, GENERIC_READ, 0, IntPtr.Zero, OPEN_EXISTING, 0, IntPtr.Zero);
-
-            handleValue = new SafeFileHandle(ptr, true);
-            _fs = new FileStream(handleValue, FileAccess.Read);
-
-            // If the handle is invalid,
-            // get the last Win32 error 
-            // and throw a Win32Exception.
-            if (handleValue.IsInvalid)
+            catch(Exception e)
             {
-                Marshal.ThrowExceptionForHR(Marshal.GetHRForLastWin32Error());
+                System.Windows.Forms.MessageBox.Show("Error opening CD device, check disk and try again." + Environment.NewLine + e.Message);
             }
         }
 
