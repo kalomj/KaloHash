@@ -1,0 +1,10 @@
+E:\kalotech\CDHash\KaloHash\KaloHash\bin\Debug\KaloHash.exe.config
+E:\kalotech\CDHash\KaloHash\KaloHash\bin\Debug\KaloHash.exe
+E:\kalotech\CDHash\KaloHash\KaloHash\bin\Debug\KaloHash.pdb
+E:\kalotech\CDHash\KaloHash\KaloHash\obj\Debug\KaloHash.csprojAssemblyReference.cache
+E:\kalotech\CDHash\KaloHash\KaloHash\obj\Debug\KaloHash.KaloHashForm.resources
+E:\kalotech\CDHash\KaloHash\KaloHash\obj\Debug\KaloHash.Properties.Resources.resources
+E:\kalotech\CDHash\KaloHash\KaloHash\obj\Debug\KaloHash.csproj.GenerateResource.cache
+E:\kalotech\CDHash\KaloHash\KaloHash\obj\Debug\KaloHash.csproj.CoreCompileInputs.cache
+E:\kalotech\CDHash\KaloHash\KaloHash\obj\Debug\KaloHash.exe
+E:\kalotech\CDHash\KaloHash\KaloHash\obj\Debug\KaloHash.pdb
