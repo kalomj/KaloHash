@@ -7,3 +7,7 @@ E:\kalotech\CDHash\KaloHash\KaloHash\obj\Release\KaloHash.csproj.GenerateResourc
 E:\kalotech\CDHash\KaloHash\KaloHash\obj\Release\KaloHash.csproj.CoreCompileInputs.cache
 E:\kalotech\CDHash\KaloHash\KaloHash\obj\Release\KaloHash.exe
 E:\kalotech\CDHash\KaloHash\KaloHash\obj\Release\KaloHash.pdb
+E:\kalotech\CDHash\KaloHash\KaloHash\bin\Release\KaloHash.exe.manifest
+E:\kalotech\CDHash\KaloHash\KaloHash\bin\Release\KaloHash.application
+E:\kalotech\CDHash\KaloHash\KaloHash\obj\Release\KaloHash.exe.manifest
+E:\kalotech\CDHash\KaloHash\KaloHash\obj\Release\KaloHash.application

@@ -14,6 +14,7 @@ namespace KaloHash
         public const uint CREATE_NEW = 1;
         public const uint CREATE_ALWAYS = 2;
         public const uint OPEN_EXISTING = 3;
+        public const uint FILE_SHARE_READ = 0x00000001;
 
         // Use interop to call the CreateFile function.
         // For more information about CreateFile,
@@ -52,11 +53,10 @@ namespace KaloHash
                 }
 
                 // Try to open the file.
-                IntPtr ptr = CreateFile(Path, GENERIC_READ, 0, IntPtr.Zero, OPEN_EXISTING, 0, IntPtr.Zero);
+                IntPtr ptr = CreateFile(Path, GENERIC_READ, FILE_SHARE_READ, IntPtr.Zero, OPEN_EXISTING, 0, IntPtr.Zero);
 
                 handleValue = new SafeFileHandle(ptr, true);
-                _fs = new FileStream(handleValue, FileAccess.Read);
-
+                
                 // If the handle is invalid,
                 // get the last Win32 error 
                 // and throw a Win32Exception.
@@ -64,6 +64,8 @@ namespace KaloHash
                 {
                     Marshal.ThrowExceptionForHR(Marshal.GetHRForLastWin32Error());
                 }
+
+                _fs = new FileStream(handleValue, FileAccess.Read);
             }
             catch(Exception e)
             {
@@ -194,6 +196,5 @@ namespace KaloHash
 
             }
         }
-
     }
 }

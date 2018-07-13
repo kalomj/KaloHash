@@ -10,33 +10,36 @@ namespace KaloHash
         public static string status = String.Empty;
         public static void Create(string disk)
         {
-            disk = disk.Trim('\\');
-            var reader = new BinaryReader(new DeviceStream(@"\\.\"+disk));
-            var writer = new BinaryWriter(new FileStream(@"disk.iso", FileMode.Create));
-            var buffer = new byte[BLOCK];
-            int count;
-            int loopcount = 0;
-            try
-            {
-                while ((count = reader.Read(buffer, 0, BLOCK)) > 0)
-                {
-                    writer.Write(buffer, 0, count);
-                    status = loopcount + " MB read from disk.";
-                    if (loopcount % 100 == 0)
-                    {
-                        writer.Flush();
-                    }
-                    loopcount++;
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
+            status = "Accessing Drive.";
 
+            disk = disk.Trim('\\');
+            using (var reader = new BinaryReader(new DeviceStream(@"\\.\" + disk)))
+            using (var writer = new BinaryWriter(new FileStream(@"disk.iso", FileMode.Create)))
+            {
+                var buffer = new byte[BLOCK];
+                int count;
+                int loopcount = 0;
+                try
+                {
+                    while ((count = reader.Read(buffer, 0, BLOCK)) > 0)
+                    {
+                        writer.Write(buffer, 0, count);
+                        status = loopcount + " MB read from disk.";
+                        if (loopcount % 100 == 0)
+                        {
+                            writer.Flush();
+                        }
+                        loopcount++;
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+                reader.Close();
+                writer.Flush();
+                writer.Close();
             }
-            reader.Close();
-            writer.Flush();
-            writer.Close();
         }
     }
 }

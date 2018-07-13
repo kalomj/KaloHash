@@ -41,15 +41,19 @@ namespace KaloHash
 
         private void hashDiskButton_Click(object sender, EventArgs e)
         {
+            hashDiskButton.Enabled = false;
+
+            hashTextBox.Text = String.Empty;
+
             string drive = driveComboBox.SelectedItem.ToString();
             Thread thd = new Thread(() =>
             {
                 CreateISO.Create(drive);
             });
             thd.IsBackground = true;
+            thd.Start();
 
             Thread thd2 = new Thread(() => {
-                thd.Start();
                 while (thd.IsAlive)
                 {
                     status = CreateISO.status;
@@ -58,7 +62,10 @@ namespace KaloHash
                 status = "Calculating SHA256 hash...";
                 string hash = CalculateHash();
                 status = "Done.";
-                this.Invoke((Action)(() => hashTextBox.Text = hash));
+                this.Invoke((Action)(() => {
+                    hashTextBox.Text = hash;
+                    hashDiskButton.Enabled = true;
+                }));
             });
             thd2.IsBackground = true;
             thd2.Start();
@@ -67,13 +74,24 @@ namespace KaloHash
         private string CalculateHash()
         {
             SHA256Managed sha256hash = new SHA256Managed();
-            byte[] hash = sha256hash.ComputeHash(new FileStream("disk.iso", FileMode.Open));
-            string hashString = string.Empty;
-            foreach (byte x in hash)
+            using (FileStream fs = new FileStream("disk.iso", FileMode.Open))
             {
-                hashString += String.Format("{0:x2}", x);
+                if (fs.Length == 0)
+                {
+                    return "Error.";
+                }
+
+                byte[] hash = sha256hash.ComputeHash(fs);
+                string hashString = string.Empty;
+                foreach (byte x in hash)
+                {
+                    hashString += String.Format("{0:x2}", x);
+                }
+
+                fs.Close();
+
+                return hashString;
             }
-            return hashString;
         }
 
         private void _Closing(object sender, FormClosingEventArgs e)
