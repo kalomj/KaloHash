@@ -11,3 +11,4 @@ E:\kalotech\CDHash\KaloHash\KaloHash\bin\Debug\KaloHash.exe.manifest
 E:\kalotech\CDHash\KaloHash\KaloHash\bin\Debug\KaloHash.application
 E:\kalotech\CDHash\KaloHash\KaloHash\obj\Debug\KaloHash.exe.manifest
 E:\kalotech\CDHash\KaloHash\KaloHash\obj\Debug\KaloHash.application
+E:\kalotech\CDHash\KaloHash\KaloHash\obj\Debug\KaloHash.csprojAssemblyReference.cache

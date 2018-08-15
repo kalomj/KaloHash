@@ -3,7 +3,7 @@
   <asmv1:assemblyIdentity name="KaloHash.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="KaloHash" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="KaloHash" version="1.0.0.1" language="neutral" processorArchitecture="msil" />
     <commandLine file="KaloHash.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,23 +43,23 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="KaloHash.exe" size="14808">
-      <assemblyIdentity name="KaloHash" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="KaloHash" version="1.0.0.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>xxL3feofCEPUqfOXvkYe+elWBhwTNl7ZznNhyUDvAlc=</dsig:DigestValue>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>r3isPUxZw1eM8FGy97/1fuhGGyQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="KaloHash.exe.config" size="189">
+  <file name="KaloHash.exe.config" size="184">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>rl5/qDc7Jz+tB+BIbOv9iMGPlRe6YJwrjmU09dnlPcs=</dsig:DigestValue>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>V4WyfI7Afij77ZC4Fb71+C3XBqM=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
